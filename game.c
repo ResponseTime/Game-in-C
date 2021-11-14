@@ -1,9 +1,15 @@
 #include<stdio.h>
 #include<unistd.h>
+#include<stdlib.h>
 
-int main(int argc, char**argv){
+typedef struct names{
+    char *name;
+    struct names*next;
+}names;
+void login(){
     char *user;
     int pass;
+    
     printf("Enter the password: ");
     scanf("%d",&pass);
     printf("Enter your Username: ");
@@ -20,6 +26,24 @@ int main(int argc, char**argv){
         fprintf(use,user);
         fprintf(use,"\t%d",pass);
         fclose(use);
-    }   
+    }
+}
+void adduser(char *name){
+    names *namelog = NULL;
+    names *node;
+    
+    names *temp = malloc(sizeof(names));
+    temp->name = name;
+    temp->next = NULL;
+    node = temp;
+    node->next = namelog;
+    namelog = node;
+
+}
+int main(int argc, char**argv){
+    login();
+    adduser("mizuhara");
+    
+
     return 0;
 }
