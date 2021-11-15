@@ -6,6 +6,9 @@ typedef struct names{
     char *name;
     struct names*next;
 }names;
+
+names *namelog = NULL;
+
 void login(){
     char *user;
     int pass;
@@ -29,9 +32,7 @@ void login(){
     }
 }
 void adduser(char *name){
-    names *namelog = NULL;
     names *node;
-    
     names *temp = malloc(sizeof(names));
     temp->name = name;
     temp->next = NULL;
@@ -40,9 +41,17 @@ void adduser(char *name){
     namelog = node;
 
 }
+void showuser(){
+    for(names *temp; temp!=NULL; temp = temp->next){
+        printf("%s, ",temp->name);
+    }
+}
 int main(int argc, char**argv){
     login();
     adduser("mizuhara");
+    adduser("mai san");
+    adduser("kaori");
+    showuser();
     
 
     return 0;
