@@ -1,15 +1,15 @@
 #include<stdio.h>
 #include<unistd.h>
 #include<stdlib.h>
+#include<stdarg.h>
 
 typedef struct names{
     char *name;
     struct names*next;
 }names;
 
-names *namelog = NULL;
 
-void login(){
+int login(){
     char *user;
     int pass;
     
@@ -23,15 +23,20 @@ void login(){
         fprintf(use,"\t%d",pass);
         fprintf(use,"\n");
         fclose(use);
+        return 0;
     }
     else{
         use = fopen("user.txt","w");
         fprintf(use,user);
         fprintf(use,"\t%d",pass);
         fclose(use);
+        return 0;
     }
+    fflush(use);
+    return 1;
 }
 void adduser(char *name){
+    names *namelog = NULL;
     names *node;
     names *temp = malloc(sizeof(names));
     temp->name = name;
