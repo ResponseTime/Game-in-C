@@ -22,21 +22,20 @@ int login(){
         fprintf(use,user);
         fprintf(use,"\t%d",pass);
         fprintf(use,"\n");
-        fclose(use);
         return 0;
     }
     else{
         use = fopen("user.txt","w");
         fprintf(use,user);
         fprintf(use,"\t%d",pass);
-        fclose(use);
         return 0;
     }
+    fclose(use);
     fflush(use);
     return 1;
 }
+names *namelog = NULL;
 void adduser(char *name){
-    names *namelog = NULL;
     names *node;
     names *temp = malloc(sizeof(names));
     temp->name = name;
@@ -47,7 +46,7 @@ void adduser(char *name){
 
 }
 void showuser(){
-    for(names *temp; temp!=NULL; temp = temp->next){
+    for(names *temp = namelog; temp!=NULL; temp = temp->next){
         printf("%s, ",temp->name);
     }
 }
