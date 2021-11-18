@@ -9,30 +9,26 @@ typedef struct names{
 }names;
 
 
-int login(){
+void login(){
     char *user;
     int pass;
-    
+    printf("Enter your Username: ");
+    gets(user);
     printf("Enter the password: ");
     scanf("%d",&pass);
-    printf("Enter your Username: ");
-    scanf("%s",user);
     FILE *use = fopen("user.txt","a");
     if(!access("user.txt",F_OK)){
-        fprintf(use,user);
+        fprintf(use,"%s",user);
         fprintf(use,"\t%d",pass);
         fprintf(use,"\n");
-        return 0;
+        fclose(use);
     }
     else{
         use = fopen("user.txt","w");
-        fprintf(use,user);
+        fprintf(use,"%s",user);
         fprintf(use,"\t%d",pass);
-        return 0;
+        fclose(use);
     }
-    fclose(use);
-    fflush(use);
-    return 1;
 }
 names *namelog = NULL;
 void adduser(char *name){
