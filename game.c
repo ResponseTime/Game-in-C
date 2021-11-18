@@ -10,10 +10,13 @@ typedef struct names{
 
 
 void login(){
-    char *user;
+    char user[30];
     int pass;
     printf("Enter your Username: ");
-    gets(user);
+    scanf("%s",user);
+    fflush(stdin);
+    fflush(stdout);
+    sleep(1);
     printf("Enter the password: ");
     scanf("%d",&pass);
     FILE *use = fopen("user.txt","a");
