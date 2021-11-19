@@ -13,7 +13,7 @@ void login(){
     char user[30];
     int pass;
     printf("Enter your Username: ");
-    scanf("%s",user);
+    gets(user);
     fflush(stdin);
     fflush(stdout);
     sleep(1);
