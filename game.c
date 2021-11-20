@@ -8,7 +8,6 @@ typedef struct names{
     struct names*next;
 }names;
 
-
 void login(){
     char user[30];
     int pass;
@@ -16,7 +15,6 @@ void login(){
     gets(user);
     fflush(stdin);
     fflush(stdout);
-    sleep(1);
     printf("Enter the password: ");
     scanf("%d",&pass);
     FILE *use = fopen("user.txt","a");
@@ -44,10 +42,18 @@ void adduser(char *name){
     namelog = node;
 
 }
+int players;
 void showuser(){
     for(names *temp = namelog; temp!=NULL; temp = temp->next){
         printf("%s, ",temp->name);
     }
+     while(namelog!=NULL){
+        namelog= namelog->next;
+        players++;
+    }
+}
+void game(){
+
 }
 int main(int argc, char**argv){
     login();
@@ -55,7 +61,6 @@ int main(int argc, char**argv){
     adduser("mai san");
     adduser("kaori");
     showuser();
-    
-
+    sleep(10);
     return 0;
 }
