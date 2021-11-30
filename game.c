@@ -47,20 +47,26 @@ void showuser(){
     for(names *temp = namelog; temp!=NULL; temp = temp->next){
         printf("%s, ",temp->name);
     }
+    printf("\n");
      while(namelog!=NULL){
         namelog= namelog->next;
         players++;
     }
 }
 void game(){
-
+    printf("The number of players playing are-> %d\n",players);
 }
+
 int main(int argc, char**argv){
     login();
     adduser("mizuhara");
     adduser("mai san");
     adduser("kaori");
     showuser();
+    printf("Press any button to continue\n");
+    scanf("%d");
+    system("cls");
+    game();
     sleep(10);
     return 0;
 }
