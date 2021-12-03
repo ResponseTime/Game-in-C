@@ -64,7 +64,7 @@ int main(int argc, char**argv){
     adduser("kaori");
     showuser();
     printf("Press any button to continue\n");
-    scanf("%d");
+    getchar();
     system("cls");
     game();
     sleep(10);
