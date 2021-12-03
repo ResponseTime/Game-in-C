@@ -55,6 +55,15 @@ void showuser(){
 }
 void game(){
     printf("The number of players playing are-> %d\n",players);
+    if(players == 2){
+        
+    }
+    else if(players == 4){
+
+    }
+    else {
+        printf("Only valid number of players can play the game (2,4)");
+    }
 }
 
 int main(int argc, char**argv){
